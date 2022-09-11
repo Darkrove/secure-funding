@@ -4,15 +4,9 @@ import { Card, Button, Icon, Grid, Image } from 'semantic-ui-react';
 import factory from "../ethereum/factory";
 import { Link } from "../routes";
 import Layout from "../components/Layout"
-import img1 from "../public/assets/1.png";
-import img2 from "../public/assets/2.png";
-import img3 from "../public/assets/3.png";
-import img4 from "../public/assets/4.png";
-import img5 from "../public/assets/5.png";
+import images from "../public/assets/avatar"
 
 const CampaignIndex = ({ campaigns }) => {
-    const images = [img1,img2,img3,img4,img5];
-    
     const renderCampaigns = () => {
         let items = campaigns.map(address => {
             return {
