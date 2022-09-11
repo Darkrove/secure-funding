@@ -3,8 +3,9 @@ import { Button, Input, Form, Message } from "semantic-ui-react";
 
 import Campaign from "../ethereum/campaign";
 import web3 from "../ethereum/web3";
+import { Router } from "../routes";
 
-function ContributeForm({address}) {
+function ContributeForm({ address }) {
     const [value, setValue] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -22,12 +23,13 @@ function ContributeForm({address}) {
                 from: accounts[0],
                 value: web3.utils.toWei(value, "ether")
             })
+            Router.replaceRoute(`/campaigns/${address}`);
         } catch (err) {
             setError(err.message);
         }
         setValue("");
         setLoading(false);
-    }; 
+    };
     return (
         <Form onSubmit={onSubmit} error={!!error}>
             <Form.Field>
@@ -40,7 +42,7 @@ function ContributeForm({address}) {
                     onChange={handleChange}
                 />
             </Form.Field>
-            <Message error header="OOPS" content={error} />
+            <Message style={{ overflowWrap: "break-word" }} error header="OOPS" content={error} />
             <Button loading={loading} primary type="submit">
                 Contribute!
             </Button>

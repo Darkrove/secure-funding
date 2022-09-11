@@ -10,7 +10,7 @@ const CampaignIndex = ({ campaigns }) => {
     const renderCampaigns = () => {
         let items = campaigns.map(address => {
             return {
-                header: address,
+                address: address,
                 description: (
                     <Link route={`/campaigns/${address}`}>
                         <a>View</a>
@@ -31,7 +31,7 @@ const CampaignIndex = ({ campaigns }) => {
                                 src={item.img.src}
                             />
                             <Card.Header>Campaign Name</Card.Header>
-                            <Card.Meta>Address {item.header}</Card.Meta>
+                            <Card.Meta>Address {item.address}</Card.Meta>
                             <Card.Description>
                                 Campaign <strong>Description</strong>.
                             </Card.Description>

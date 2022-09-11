@@ -44,7 +44,7 @@ const NewCampaign = () => {
                         onChange={handleChange}
                     />
                 </Form.Field>
-                <Message error header="OOPS" content={error}/>
+                <Message style={{ overflowWrap: "break-word" }} error header="OOPS" content={error}/>
                 <Button loading={loading} primary type="submit">Create</Button>
             </Form>
         </Layout>

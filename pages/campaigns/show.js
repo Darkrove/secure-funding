@@ -1,10 +1,11 @@
 import React from "react";
-import { Card, Grid } from 'semantic-ui-react';
+import { Card, Grid, Button, Icon } from 'semantic-ui-react';
 
 import Layout from "../../components/Layout";
 import Campaign from "../../ethereum/campaign";
 import web3 from "../../ethereum/web3";
 import ContributeForm from "../../components/ContributeForm";
+import { Link } from "../../routes";
 
 const ShowCampaign = (props) => {
     const {
@@ -52,16 +53,32 @@ const ShowCampaign = (props) => {
     };
     return (
         <Layout>
+            <Link route={"/"}>
+                <a>
+                    <Icon name="arrow left"/> Back
+                </a>
+            </Link>
             <h3>Campaign Details</h3>
             <Grid>
-                <Grid.Column width={10}>
-                    {renderCards()}
-                </Grid.Column>
-                <Grid.Column width={6}>
-                    <ContributeForm address={address} />
-                </Grid.Column>
+                <Grid.Row>
+                    <Grid.Column width={10}>
+                        {renderCards()}
+                    </Grid.Column>
+                    <Grid.Column width={6}>
+                        <ContributeForm address={address} />
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Link route={`/campaigns/${address}/requests`}>
+                            <a>
+                                <Button primary>View Requests</Button>
+                            </a>
+                        </Link>
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
-        </Layout>
+        </Layout >
     )
 }
 
