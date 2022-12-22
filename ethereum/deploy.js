@@ -4,7 +4,7 @@ const compiledFactory = require('./build/CampaignFacotry.json');
 
 const provider = new HDWalletProvider(
   "silly modify obtain syrup switch catalog bleak angry liberty salon reject arena",
-  "https://rinkeby.infura.io/v3/33b26cd915e34572897371449db71b12"
+  "https://goerli.infura.io/v3/c11ab05883794d3a9037f08ffe273f37"
 );
 const web3 = new Web3(provider);
 
